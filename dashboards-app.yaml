@@ -1,0 +1,28 @@
+spec:
+  containers:
+    - name: dashboards-app
+      image: <your-account>.registry.snowflakecomputing.com/<your-db>/<your-schema>/<your-image-repo>/dashboards-app:latest
+      env:
+        # lib/snowflake.py reads these to scope the Snowpark session and
+        # the snowflake-connector connection in SPCS mode. SNOWFLAKE_ACCOUNT
+        # and SNOWFLAKE_HOST are injected automatically by SPCS.
+        SNOWFLAKE_WAREHOUSE: <your-warehouse>
+        SNOWFLAKE_DATABASE: <your-database>
+        SNOWFLAKE_SCHEMA: <your-schema>
+        # dlt writes pipeline state and intermediate parquet files here.
+        # /tmp is tmpfs in SPCS — fits the once-per-startup populate model.
+        DLT_DATA_DIR: /tmp/dlt
+      resources:
+        # The startup populate runs the Snowflake → DuckDB mirror in-process
+        # (Arrow batches → parquet → DuckDB load). Bump these if your mirror
+        # set is large or memory-hungry.
+        requests:
+          cpu: 1
+          memory: 2G
+        limits:
+          cpu: 2
+          memory: 4G
+  endpoints:
+    - name: dashboards-app
+      port: 8501
+      public: true

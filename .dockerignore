@@ -1,0 +1,23 @@
+# Keep the Docker image small and clean.
+# These paths are excluded from the build context.
+
+# Python bytecode caches (don't leak host-built caches into the image)
+__pycache__
+*.pyc
+*.pyo
+
+# Editor / IDE
+.vscode
+.idea
+*.swp
+
+# Docs that aren't needed at runtime
+README.md
+
+# Dockerfile itself (already read by docker build; no need to copy)
+Dockerfile
+.dockerignore
+
+# Local scratch
+.DS_Store
+*.log

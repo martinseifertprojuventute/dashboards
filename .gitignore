@@ -1,0 +1,12 @@
+.venv/*
+
+__pycache__/
+*.pyc
+*.pyo
+
+*.db
+*.duckdb
+*.p8
+
+# Streamlit local secrets
+.streamlit/secrets.toml

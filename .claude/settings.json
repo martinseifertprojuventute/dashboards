@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "allow": [
+    ],
+    "deny": [
+      "Read(**/.env)",
+      "Read(**/env.php*)",
+      "Read(**/*.pem)",
+      "Read(**/*.key)",
+      "Read(**/secrets/**)",
+      "Read(**/credentials/**)",
+      "Read(**/.aws/**)",
+      "Read(**/.ssh/**)",
+      "Read(**/docker-compose*.yml)",
+      "Read(**/config/database.yml)",
+      "Read(**/secrets.toml)"
+    ]
+  },
+  "CLAUDE_CODE_DISABLE_1M_CONTEXT": "1",
+  "CLAUDE_AUTOCOMPACT_PCT_OVERRIDE": "80"
+}

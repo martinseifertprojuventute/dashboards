@@ -1,0 +1,14 @@
+# Streamlit theme for the dashboards app.
+# The primary accent matches lib/brand.py's BRAND_YELLOW so widgets
+# (buttons, sliders, progress bars, date-picker selection highlight,
+# etc.) pick it up automatically. Chart colors come from lib/brand.py.
+
+[theme]
+primaryColor = "#ffc300"
+backgroundColor = "#ffffff"
+secondaryBackgroundColor = "#faf6ee"
+textColor = "#1a1a1a"
+font = "sans serif"
+
+[server]
+headless = true
